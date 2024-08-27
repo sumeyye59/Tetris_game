@@ -4,15 +4,54 @@ using UnityEngine;
 
 public class ShapeManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private bool donebilirmi=true;
+    private void Start()
     {
-        
+        //InvokeRepeating("AsagiHareketFNC",0f,.25f);
+        StartCoroutine(HareketRoutine());
+    
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SolaHareketFNC()
     {
-        
+        transform.Translate(Vector3.left);
+    }
+    public void SagHareketFNC()
+    {
+        transform.Translate(Vector3.right);
+    }
+    public void AsagiHareketFNC()
+    {
+        transform.Translate(Vector3.down);
+          
+    }
+    public void YukariHareketFNC()
+    {
+        transform.Translate(Vector3.up);
+
+    }
+    public void SagaDonFNC()
+    {
+        if (donebilirmi) {
+            transform.Rotate(0,0,-90);
+        }
+
+    }
+    public void SolaDonFNC()
+    {
+
+        if (donebilirmi)
+        {
+            transform.Rotate(0, 0, 90);
+        }
+
+    }
+    IEnumerator HareketRoutine()
+    {
+        while (true)
+        {
+            AsagiHareketFNC();
+            yield return new WaitForSeconds(.25f);
+        }
     }
 }
