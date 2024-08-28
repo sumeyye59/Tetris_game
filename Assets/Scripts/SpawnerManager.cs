@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class SpawnerManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] ShapeManager[] tumSekiller;
+   
+    public ShapeManager SekilOlusturFNC()
     {
-        
+        int randomSekil = Random.Range(0, tumSekiller.Length);
+        ShapeManager sekil = Instantiate(tumSekiller[randomSekil],transform.position,Quaternion.identity) as ShapeManager;
+        if (sekil != null)
+        {
+            return sekil;
+        }
+        else {
+            print("dizi boþ");
+            return null; }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
