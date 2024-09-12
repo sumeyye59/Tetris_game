@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     SpawnerManager spawner;
     BoardManager board;
+    private ShapeManager aktifSekil;
 
     private void Start()
     {
@@ -13,6 +14,11 @@ public class GameManager : MonoBehaviour
         board = GameObject.FindObjectOfType<BoardManager>();
         spawner = GameObject.FindObjectOfType<SpawnerManager>();
     }
-
+  /*  if(spawner){
+           if(aktifSekil==null){
+        aktifSekil=spawner.SekilOlusturFNC();
+        }
+           
+}*/
 
 }
